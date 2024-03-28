@@ -4,7 +4,6 @@ import "./Main.scss";
 const Main = () => {
   return (
     <div className="main">
-      Main container
       <BeerCard />
       <BeerCard />
       <BeerCard />

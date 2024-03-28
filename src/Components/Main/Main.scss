@@ -1,3 +1,18 @@
+@use "../../assets/styles/_variables" as *;
+
 .main {
   border: 2px solid red;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: start;
+  gap: 2rem;
+  height: 80vh;
+}
+
+@media screen and (min-width: $desktop) {
+  .main {
+    height: 100vh;
+  }
 }
