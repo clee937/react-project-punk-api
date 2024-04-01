@@ -1,15 +1,23 @@
-import BeerCard from "../BeerCard/BeerCard";
 import "./Main.scss";
+import BeerCard from "../BeerCard/BeerCard";
+import { Beer } from "../../types/types";
 
-const Main = () => {
+type MainProps = {
+  filteredBeers: Beer[];
+};
+
+const Main = ({ filteredBeers }: MainProps) => {
   return (
     <div className="main">
-      <BeerCard />
-      <BeerCard />
-      <BeerCard />
-      <BeerCard />
-      <BeerCard />
-      <BeerCard />
+      {filteredBeers &&
+        filteredBeers.map((beer: Beer) => (
+          <BeerCard
+            imageUrl={beer.image_url}
+            name={beer.name}
+            info={beer.description}
+            key={beer.id}
+          />
+        ))}
     </div>
   );
 };
