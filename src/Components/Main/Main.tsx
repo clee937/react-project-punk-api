@@ -4,20 +4,31 @@ import { Beer } from "../../types/types";
 
 type MainProps = {
   filteredBeers: Beer[];
+  noOfResults: number;
 };
 
-const Main = ({ filteredBeers }: MainProps) => {
+const Main = ({ filteredBeers, noOfResults }: MainProps) => {
+  const noResultsFound = <p>No results found</p>;
+
   return (
     <div className="main">
-      {filteredBeers &&
-        filteredBeers.map((beer: Beer) => (
-          <BeerCard
-            imageUrl={beer.image_url}
-            name={beer.name}
-            info={beer.description}
-            key={beer.id}
-          />
-        ))}
+      {!noOfResults
+        ? noResultsFound
+        : filteredBeers &&
+          filteredBeers.map((beer: Beer) => (
+            <BeerCard
+              imageUrl={
+                beer.image_url
+                  ? beer.image_url
+                  : "./../../assets/images/placeholder.png"
+              }
+              // imageUrl="./../../assets/images/placeholder.png"
+              name={beer.name}
+              abv={beer.abv}
+              info={beer.description}
+              key={beer.id}
+            />
+          ))}
     </div>
   );
 };
