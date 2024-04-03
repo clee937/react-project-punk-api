@@ -25,6 +25,8 @@ const Main = ({ filteredBeers, noOfResults }: MainProps) => {
               // imageUrl="./../../assets/images/placeholder.png"
               name={beer.name}
               abv={beer.abv}
+              firstBrewed={beer.first_brewed}
+              acidity={beer.ph}
               info={beer.description}
               key={beer.id}
             />

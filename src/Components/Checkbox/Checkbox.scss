@@ -1,0 +1,17 @@
+.checkbox {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+
+  &__label {
+    position: absolute;
+    left: 0;
+  }
+
+  &__input {
+    width: 15px;
+    // margin-left: 20px;
+    // margin-left: 20px;
+    // margin: 0 auto;
+  }
+}

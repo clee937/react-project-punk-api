@@ -1,11 +1,12 @@
 import "./Checkbox.scss";
+import { FormEvent } from "react";
 
 type CheckboxProps = {
   label: string;
   id: string;
   name: string;
   value: string;
-  handleAbvCheckboxInput?: () => void;
+  handleAbvCheckboxInput?: (event: FormEvent<HTMLInputElement>) => void;
   handleClassicRangeCheckboxInput?: () => void;
   handleAcidityCheckboxInput?: () => void;
 };
@@ -21,7 +22,11 @@ const Checkbox = ({
 }: CheckboxProps) => {
   return (
     <div className="checkbox">
+      <label htmlFor={name} className="checkbox__label">
+        {label}
+      </label>
       <input
+        className="checkbox__input"
         type="checkbox"
         id={id}
         name={name}
@@ -32,7 +37,6 @@ const Checkbox = ({
           handleAcidityCheckboxInput
         }
       />
-      <label htmlFor={name}>{label}</label>
     </div>
   );
 };

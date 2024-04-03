@@ -2,14 +2,17 @@ import SearchBar from "../SearchBar/SearchBar";
 import { FormEventHandler } from "react";
 import "./Nav.scss";
 import Checkbox from "../Checkbox/Checkbox";
+import Button from "../Button/Button";
+import { FormEvent } from "react";
 
 type NavProps = {
   searchTerm: string;
   noOfResults: number;
   handleSearchbarInput: FormEventHandler<HTMLInputElement>;
-  handleAbvCheckboxInput: () => void;
+  handleAbvCheckboxInput: (event: FormEvent<HTMLInputElement>) => void;
   handleClassicRangeCheckboxInput: () => void;
   handleAcidityCheckboxInput: () => void;
+  clickFunction: () => void;
 };
 
 const Nav = ({
@@ -19,40 +22,49 @@ const Nav = ({
   handleAbvCheckboxInput,
   handleClassicRangeCheckboxInput,
   handleAcidityCheckboxInput,
+  clickFunction,
 }: NavProps) => {
   return (
-    <div className="nav">
-      <SearchBar
-        label="Beer"
-        searchTerm={searchTerm}
-        placeHolderText="Search by name..."
-        handleInput={handleSearchbarInput}
-      />
-      <Checkbox
-        label="ABV greater than 6%"
-        id="abv"
-        name="abv"
-        value="abv"
-        handleAbvCheckboxInput={handleAbvCheckboxInput}
-      />
+    <form className="nav">
+      <div className="nav__search-and-clear-filter-container">
+        <SearchBar
+          label="Beer"
+          searchTerm={searchTerm}
+          placeHolderText="Search by name..."
+          handleInput={handleSearchbarInput}
+        />
 
-      <Checkbox
-        label="Classic Range"
-        id="classic"
-        name="classic"
-        value="classic"
-        handleAbvCheckboxInput={handleClassicRangeCheckboxInput}
-      />
+        <Button label="Clear filters" clickFunction={clickFunction} />
+      </div>
 
-      <Checkbox
-        label="High Acidity (pH lower than 4)"
-        id="acidity"
-        name="acidity"
-        value="acidity"
-        handleAcidityCheckboxInput={handleAcidityCheckboxInput}
-      />
+      <div className="nav__checkboxes">
+        <Checkbox
+          label="High ABV (> 6.0%)"
+          id="abv"
+          name="abv"
+          value="abv"
+          handleAbvCheckboxInput={handleAbvCheckboxInput}
+        />
+
+        <Checkbox
+          label="Classic Range"
+          id="classic"
+          name="classic"
+          value="classic"
+          handleAbvCheckboxInput={handleClassicRangeCheckboxInput}
+        />
+
+        <Checkbox
+          label="Acidic (ph < 4)"
+          id="acidity"
+          name="acidity"
+          value="acidity"
+          handleAcidityCheckboxInput={handleAcidityCheckboxInput}
+        />
+      </div>
+
       <p>Number of results: {noOfResults}</p>
-    </div>
+    </form>
   );
 };
 
