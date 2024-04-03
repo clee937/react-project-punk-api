@@ -12,7 +12,7 @@ type NavProps = {
   handleAbvCheckboxInput: (event: FormEvent<HTMLInputElement>) => void;
   handleClassicRangeCheckboxInput: () => void;
   handleAcidityCheckboxInput: () => void;
-  clickFunction: () => void;
+  handleButtonClick: () => void;
 };
 
 const Nav = ({
@@ -22,7 +22,7 @@ const Nav = ({
   handleAbvCheckboxInput,
   handleClassicRangeCheckboxInput,
   handleAcidityCheckboxInput,
-  clickFunction,
+  handleButtonClick,
 }: NavProps) => {
   return (
     <form className="nav">
@@ -34,7 +34,7 @@ const Nav = ({
           handleInput={handleSearchbarInput}
         />
 
-        <Button label="Clear filters" clickFunction={clickFunction} />
+        <Button label="Clear filters" handleButtonClick={handleButtonClick} />
       </div>
 
       <div className="nav__checkboxes">
