@@ -9,6 +9,7 @@ type NavProps = {
   handleSearchbarInput: FormEventHandler<HTMLInputElement>;
   handleAbvCheckboxInput: () => void;
   handleClassicRangeCheckboxInput: () => void;
+  handleAcidityCheckboxInput: () => void;
 };
 
 const Nav = ({
@@ -17,6 +18,7 @@ const Nav = ({
   handleSearchbarInput,
   handleAbvCheckboxInput,
   handleClassicRangeCheckboxInput,
+  handleAcidityCheckboxInput,
 }: NavProps) => {
   return (
     <div className="nav">
@@ -40,6 +42,14 @@ const Nav = ({
         name="classic"
         value="classic"
         handleAbvCheckboxInput={handleClassicRangeCheckboxInput}
+      />
+
+      <Checkbox
+        label="High Acidity (pH lower than 4)"
+        id="acidity"
+        name="acidity"
+        value="acidity"
+        handleAcidityCheckboxInput={handleAcidityCheckboxInput}
       />
       <p>Number of results: {noOfResults}</p>
     </div>

@@ -7,6 +7,7 @@ type CheckboxProps = {
   value: string;
   handleAbvCheckboxInput?: () => void;
   handleClassicRangeCheckboxInput?: () => void;
+  handleAcidityCheckboxInput?: () => void;
 };
 
 const Checkbox = ({
@@ -16,6 +17,7 @@ const Checkbox = ({
   value,
   handleAbvCheckboxInput,
   handleClassicRangeCheckboxInput,
+  handleAcidityCheckboxInput,
 }: CheckboxProps) => {
   return (
     <div className="checkbox">
@@ -24,7 +26,11 @@ const Checkbox = ({
         id={id}
         name={name}
         value={value}
-        onChange={handleAbvCheckboxInput || handleClassicRangeCheckboxInput}
+        onChange={
+          handleAbvCheckboxInput ||
+          handleClassicRangeCheckboxInput ||
+          handleAcidityCheckboxInput
+        }
       />
       <label htmlFor={name}>{label}</label>
     </div>
