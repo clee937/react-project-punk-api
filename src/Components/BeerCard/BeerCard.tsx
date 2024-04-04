@@ -3,7 +3,6 @@ import "./BeerCard.scss";
 type BeerCardProps = {
   imageUrl: string;
   name: string;
-  info: string;
   abv: number;
   firstBrewed: string;
   acidity: number;
@@ -12,7 +11,6 @@ type BeerCardProps = {
 const BeerCard = ({
   imageUrl,
   name,
-  info,
   abv,
   firstBrewed,
   acidity,
@@ -26,7 +24,7 @@ const BeerCard = ({
       <p className="beer-card__abv">ABV: {abv}</p>
       <p className="beer-card__acidity">pH: {acidity}</p>
       <p className="beer-card__first-brewed">FB: {firstBrewed}</p>
-      <p className="beer-card__info">{info}</p>
+      {/* <p className="beer-card__info">{info}</p> */}
     </div>
   );
 };

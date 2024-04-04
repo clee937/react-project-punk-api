@@ -1,6 +1,7 @@
 import "./Main.scss";
 import BeerCard from "../BeerCard/BeerCard";
 import { Beer } from "../../types/types";
+import placeholderBeer from "../../assets/images/placeholder.png";
 
 type MainProps = {
   filteredBeers: Beer[];
@@ -17,17 +18,11 @@ const Main = ({ filteredBeers, noOfResults }: MainProps) => {
         : filteredBeers &&
           filteredBeers.map((beer: Beer) => (
             <BeerCard
-              imageUrl={
-                beer.image_url
-                  ? beer.image_url
-                  : "./../../assets/images/placeholder.png"
-              }
-              // imageUrl="./../../assets/images/placeholder.png"
+              imageUrl={beer.image_url ? beer.image_url : placeholderBeer}
               name={beer.name}
               abv={beer.abv}
               firstBrewed={beer.first_brewed}
               acidity={beer.ph}
-              info={beer.description}
               key={beer.id}
             />
           ))}

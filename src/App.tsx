@@ -31,8 +31,11 @@ function App() {
     setSearchTerm(input);
   };
 
-  const handleAbvFilterChange = () => {
+  const handleAbvFilterChange = (event: FormEvent<HTMLInputElement>) => {
+    console.log(`checked value is: ${event.currentTarget.checked}`);
     setShowAbvOver6(!showAbvOver6);
+    // const checked = event.currentTarget.checked;
+    // event.currentTarget.checked = !checked;
   };
 
   const handleAcidityFilterChange = () => {
@@ -73,6 +76,17 @@ function App() {
     });
   }
 
+  const clearFilters = () => {
+    // setShowAbvOver6(!showAbvOver6);
+    // setShowHighAcidity(!showHighAcidity);
+    // setShowClassicRange(!showClassicRange);
+
+    setShowAbvOver6(false);
+    setShowHighAcidity(false);
+    setShowClassicRange(false);
+    setSearchTerm("");
+  };
+
   return (
     <div className="app">
       <Nav
@@ -82,6 +96,7 @@ function App() {
         handleClassicRangeCheckboxInput={handleClassicRangeFilterChange}
         handleAcidityCheckboxInput={handleAcidityFilterChange}
         noOfResults={filteredBeers.length}
+        handleButtonClick={clearFilters}
       />
       <Main filteredBeers={filteredBeers} noOfResults={filteredBeers.length} />
     </div>

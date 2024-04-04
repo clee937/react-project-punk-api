@@ -1,17 +1,31 @@
 // @use "../../assets/styles/_variables" as *;
 
 .beer-card {
-  border: 2px solid green;
-  width: 160px;
-  height: 220px;
+  //   border: 2px solid #c6c6c6;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 4px rgba(rgb(185, 181, 180), 0.5);
+  border-radius: 10px;
+  width: 260px;
+  height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   &__image-container {
-    width: 140px;
+    background-color: #e3e1e1;
+    width: 100%;
+    // margin: 15px auto;
+    padding: 10px 0;
+    margin-bottom: 15px;
     height: 50%;
-    border: 2px solid purple;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    // border: 2px solid purple;
   }
 
   &__image {
