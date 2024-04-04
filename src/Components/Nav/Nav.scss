@@ -1,15 +1,39 @@
 @use "../../assets/styles/_variables" as *;
 
 .nav {
+  background: radial-gradient(#b3541e, #362222);
+  border-bottom: 4px solid #825151;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
   padding: 25px;
-  border: 2px solid blue;
-  //   height: 30vh;
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 25px;
-  //   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  &__logo-container {
+    // border: 2px solid #3a1e0c;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+  }
+
+  &__icon {
+    font-size: 1.3rem;
+  }
 
   &__search-and-clear-filter-container {
     display: flex;
@@ -19,7 +43,6 @@
   }
 
   &__checkboxes {
-    border: 2px solid orange;
     width: 200px;
     position: relative;
     display: flex;
@@ -29,4 +52,9 @@
 }
 
 @media screen and (min-width: $desktop) {
+  .nav {
+    height: 100%;
+    width: auto;
+    border-right: 5px solid #825151;
+  }
 }

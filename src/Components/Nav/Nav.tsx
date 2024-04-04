@@ -26,6 +26,11 @@ const Nav = ({
 }: NavProps) => {
   return (
     <form className="nav">
+      <div className="nav__logo-container">
+        <i className="fa-sharp fa-solid fa-beer-mug-empty nav__icon"></i>
+        <h1 className="nav__title">Punk API</h1>
+      </div>
+
       <div className="nav__search-and-clear-filter-container">
         <SearchBar
           label="Beer"
