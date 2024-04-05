@@ -10,6 +10,11 @@
   align-items: start;
   gap: 2.6rem;
   margin-top: 273px;
+
+  &__no-results {
+    margin: 0 auto;
+    font-weight: 700;
+  }
 }
 
 @media screen and (min-width: $desktop) {
@@ -19,8 +24,5 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    // margin-left: calc(5fr - 1fr);
-
-    // width: 100%;
   }
 }

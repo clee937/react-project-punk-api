@@ -1,8 +1,11 @@
-// @use "../../assets/styles/_variables" as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
 
 .beer-card {
-  //   border: 2px solid #c6c6c6;
-  background-color: #ffffff;
+  background-color: #fefdfd;
   box-shadow: 4px 4px 4px rgba(rgb(185, 181, 180), 0.5);
   border-radius: 10px;
   width: 260px;
@@ -11,21 +14,22 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease-in-out;
+  padding-bottom: 15px;
+  color: #171717;
 
   &:hover {
     transform: scale(1.01);
   }
 
   &__image-container {
-    background-color: #e3e1e1;
+    background-color: #edecec;
+
     width: 100%;
-    // margin: 15px auto;
     padding: 10px 0;
     margin-bottom: 15px;
     height: 50%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    // border: 2px solid purple;
   }
 
   &__image {
@@ -36,9 +40,23 @@
 
   &__name {
     font-size: 1.1rem;
+    margin: 0 15px 15px 15px;
+  }
+
+  &__info-container {
+    width: 88%;
   }
 
   &__info {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    text-align: left;
+    margin: 5px 0;
+    &--bold {
+      font-weight: 700;
+    }
+
+    // &--classic {
+    //   color: #ffd700;
+    // }
   }
 }
