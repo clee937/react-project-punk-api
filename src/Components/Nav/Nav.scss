@@ -1,9 +1,12 @@
 @use "../../assets/styles/_variables" as *;
 
 .nav {
-  background: radial-gradient(#b3541e, #362222);
+  background: radial-gradient(
+    $navbar-secondary-background-color,
+    $navbar-primary-background-color
+  );
   border-bottom: 2px solid #825151;
-  color: #ffffff;
+  color: $navbar-font-colour;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 700;
   padding: 25px;
