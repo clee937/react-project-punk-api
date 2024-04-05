@@ -5,7 +5,7 @@ type BeerCardProps = {
   name: string;
   abv: number;
   firstBrewed: string;
-  acidity: number;
+  acidity: string | number;
 };
 
 const BeerCard = ({
@@ -16,15 +16,29 @@ const BeerCard = ({
   acidity,
 }: BeerCardProps) => {
   return (
-    <div className="beer-card">
+    <div className="beer-card" data-testid="beer-card">
       <div className="beer-card__image-container">
         <img className="beer-card__image" src={imageUrl} alt={name} />
       </div>
       <h2 className="beer-card__name">{name}</h2>
-      <p className="beer-card__abv">ABV: {abv}</p>
-      <p className="beer-card__acidity">pH: {acidity}</p>
-      <p className="beer-card__first-brewed">FB: {firstBrewed}</p>
-      {/* <p className="beer-card__info">{info}</p> */}
+      <div className="beer-card__info-container">
+        <p className="beer-card__info">
+          <i className="fa-solid fa-vial"></i>
+          <span className="beer-card__info--bold">&nbsp;ABV:</span> {abv}
+        </p>
+        <p className="beer-card__info">
+          <i className="fa-solid fa-flask"></i>
+          <span className="beer-card__info--bold">&nbsp;&nbsp;pH:</span>{" "}
+          {acidity}
+        </p>
+        <p className="beer-card__info">
+          <i className="fa-solid fa-certificate fa-solid fa-certificate"></i>
+          <span className="beer-card__info--bold">
+            &nbsp;First brewed:
+          </span>{" "}
+          {firstBrewed}
+        </p>
+      </div>
     </div>
   );
 };

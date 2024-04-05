@@ -21,7 +21,7 @@ const Checkbox = ({
   handleAcidityCheckboxInput,
 }: CheckboxProps) => {
   return (
-    <div className="checkbox">
+    <div className="checkbox" data-testid="checkbox">
       <label htmlFor={name} className="checkbox__label">
         {label}
       </label>

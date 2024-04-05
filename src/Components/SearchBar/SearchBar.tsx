@@ -17,7 +17,7 @@ const SearchBar = ({
   const capitalizedLabel = label[0].toUpperCase() + label.slice(1);
 
   return (
-    <div className="search-bar">
+    <div className="search-bar" data-testid="search-bar">
       <label htmlFor={label} className="search-bar__label">
         {capitalizedLabel}
       </label>

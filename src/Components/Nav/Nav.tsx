@@ -25,7 +25,7 @@ const Nav = ({
   handleButtonClick,
 }: NavProps) => {
   return (
-    <form className="nav">
+    <form className="nav" data-testid="navigation">
       <div className="nav__logo-container">
         <i className="fa-sharp fa-solid fa-beer-mug-empty nav__icon"></i>
         <h1 className="nav__title">Punk API</h1>

@@ -77,10 +77,6 @@ function App() {
   }
 
   const clearFilters = () => {
-    // setShowAbvOver6(!showAbvOver6);
-    // setShowHighAcidity(!showHighAcidity);
-    // setShowClassicRange(!showClassicRange);
-
     setShowAbvOver6(false);
     setShowHighAcidity(false);
     setShowClassicRange(false);
@@ -88,7 +84,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="app" data-testid="app">
       <Nav
         searchTerm={searchTerm}
         handleSearchbarInput={handleInput}

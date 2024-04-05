@@ -8,7 +8,12 @@ type ButtonProps = {
 
 const Button = ({ label, handleButtonClick }: ButtonProps) => {
   return (
-    <button className="button" type="button" onClick={handleButtonClick}>
+    <button
+      className="button"
+      type="reset"
+      onClick={handleButtonClick}
+      data-testid="button"
+    >
       {label}{" "}
     </button>
   );

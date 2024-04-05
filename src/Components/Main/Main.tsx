@@ -9,10 +9,10 @@ type MainProps = {
 };
 
 const Main = ({ filteredBeers, noOfResults }: MainProps) => {
-  const noResultsFound = <p>No results found</p>;
+  const noResultsFound = <p className="main__no-results">No results found</p>;
 
   return (
-    <div className="main">
+    <div className="main" data-testid="main-container">
       {!noOfResults
         ? noResultsFound
         : filteredBeers &&
@@ -22,7 +22,7 @@ const Main = ({ filteredBeers, noOfResults }: MainProps) => {
               name={beer.name}
               abv={beer.abv}
               firstBrewed={beer.first_brewed}
-              acidity={beer.ph}
+              acidity={beer.ph ? beer.ph : "n/a"}
               key={beer.id}
             />
           ))}
