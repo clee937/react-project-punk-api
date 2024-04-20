@@ -1,20 +1,5 @@
-@use "./assets/styles/_variables" as *;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: 0;
 }
-
-.app {
-  display: grid;
-  grid-template-rows: 1fr 4fr;
-  height: 100vh;
-}
-
-// @media screen and (min-width: $desktop) {
-//   .app {
-//     display: grid;
-//     grid-template-columns: 1fr 4fr;
-//   }
-// }

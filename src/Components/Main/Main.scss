@@ -1,7 +1,6 @@
 @use "../../assets/styles/_variables" as *;
 
 .main {
-  // border: 2px solid red;
   padding: 30px;
   padding: auto;
   display: flex;
@@ -20,7 +19,7 @@
 @media screen and (min-width: $desktop) {
   .main {
     margin-top: 0;
-    margin-left: 327px;
+    margin-left: 293px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

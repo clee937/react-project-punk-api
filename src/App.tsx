@@ -1,16 +1,15 @@
 import "./App.scss";
 import { useState } from "react";
-import Nav from "./components/Nav/Nav";
-import Main from "./components/Main/Main";
 import beers from "./data/beers";
-// import { Beer } from "./types/types";
 import { FormEvent } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import BeerInfo from "./components/BeerInfo/BeerInfo";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [showAbvOver6, setShowAbvOver6] = useState<boolean>(false);
-  const [showHighAcidity, setShowHighAcidity] = useState<boolean>(false);
-  const [showClassicRange, setShowClassicRange] = useState<boolean>(false);
+  const [checkboxFiltersCheckedState, setCheckboxFiltersCheckedState] =
+    useState<boolean[]>([false, false, false]);
 
   //   const [beers, setBeers] = useState<Beer[]>();
 
@@ -31,19 +30,13 @@ function App() {
     setSearchTerm(input);
   };
 
-  const handleAbvFilterChange = (event: FormEvent<HTMLInputElement>) => {
-    console.log(`checked value is: ${event.currentTarget.checked}`);
-    setShowAbvOver6(!showAbvOver6);
-    // const checked = event.currentTarget.checked;
-    // event.currentTarget.checked = !checked;
-  };
+  const handleFilterChange = (filterId: number) => {
+    const updatedCheckedState = checkboxFiltersCheckedState.map(
+      (filterCategory, index) =>
+        index === filterId ? !filterCategory : filterCategory
+    );
 
-  const handleAcidityFilterChange = () => {
-    setShowHighAcidity(!showHighAcidity);
-  };
-
-  const handleClassicRangeFilterChange = () => {
-    setShowClassicRange(!showClassicRange);
+    setCheckboxFiltersCheckedState(updatedCheckedState);
   };
 
   let filteredBeers = beers;
@@ -54,15 +47,17 @@ function App() {
     );
   }
 
-  if (showAbvOver6) {
+  if (checkboxFiltersCheckedState[0]) {
     filteredBeers = filteredBeers.filter((beer) => beer.abv > 6);
   }
 
-  if (showHighAcidity) {
-    filteredBeers = filteredBeers.filter((beer) => beer.ph < 4);
+  if (checkboxFiltersCheckedState[2]) {
+    filteredBeers = filteredBeers.filter(
+      (beer) => beer.ph < 4 && typeof beer.ph === "number"
+    );
   }
 
-  if (showClassicRange) {
+  if (checkboxFiltersCheckedState[1]) {
     filteredBeers = filteredBeers.filter((beer) => {
       if (beer.first_brewed.includes("/")) {
         const index: number = beer.first_brewed.indexOf("/");
@@ -76,26 +71,38 @@ function App() {
     });
   }
 
-  const clearFilters = () => {
-    setShowAbvOver6(false);
-    setShowHighAcidity(false);
-    setShowClassicRange(false);
-    setSearchTerm("");
-  };
+  //   const clearFilters = () => {
+  //     setShowAbvOver6(false);
+  //     setShowHighAcidity(false);
+  //     setShowClassicRange(false);
+  //     setSearchTerm("");
+  //   };
 
   return (
-    <div className="app" data-testid="app">
-      <Nav
-        searchTerm={searchTerm}
-        handleSearchbarInput={handleInput}
-        handleAbvCheckboxInput={handleAbvFilterChange}
-        handleClassicRangeCheckboxInput={handleClassicRangeFilterChange}
-        handleAcidityCheckboxInput={handleAcidityFilterChange}
-        noOfResults={filteredBeers.length}
-        handleButtonClick={clearFilters}
-      />
-      <Main filteredBeers={filteredBeers} noOfResults={filteredBeers.length} />
-    </div>
+    <BrowserRouter>
+      <div className="app" data-testid="app">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                filteredBeers={filteredBeers}
+                searchTerm={searchTerm}
+                noOfResults={filteredBeers.length}
+                filterCheckedStateArray={checkboxFiltersCheckedState}
+                handleSearchbarInput={handleInput}
+                onFilterChange={handleFilterChange}
+                // handleButtonClick={clearFilters}
+              />
+            }
+          />
+          <Route
+            path="beers/:beerId"
+            element={<BeerInfo beers={filteredBeers} />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,8 @@
 import "./BeerCard.scss";
+// import { Link } from "react-router-dom";
 
 type BeerCardProps = {
+  id: number;
   imageUrl: string;
   name: string;
   abv: number;
@@ -9,6 +11,7 @@ type BeerCardProps = {
 };
 
 const BeerCard = ({
+  id,
   imageUrl,
   name,
   abv,
@@ -16,7 +19,7 @@ const BeerCard = ({
   acidity,
 }: BeerCardProps) => {
   return (
-    <div className="beer-card" data-testid="beer-card">
+    <div key={id} className="beer-card" data-testid="beer-card">
       <div className="beer-card__image-container">
         <img className="beer-card__image" src={imageUrl} alt={name} />
       </div>

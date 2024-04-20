@@ -14,7 +14,7 @@ it("should render the Nav component", () => {
       handleAbvCheckboxInput={handleInput}
       handleClassicRangeCheckboxInput={handleInput}
       handleAcidityCheckboxInput={handleInput}
-      handleButtonClick={handleInput}
+      //   handleButtonClick={handleInput}
     />
   );
 

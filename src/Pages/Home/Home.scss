@@ -1,0 +1,13 @@
+@use "../../assets/styles/variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+.home {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  height: 100vh;
+}

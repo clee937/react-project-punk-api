@@ -2,8 +2,8 @@
 
 .nav {
   background: radial-gradient(
-    $navbar-secondary-background-color,
-    $navbar-primary-background-color
+    $secondary-background-color,
+    $primary-background-color
   );
   border-bottom: 2px solid #825151;
   color: $navbar-font-colour;
@@ -22,7 +22,7 @@
   z-index: 1;
 
   &__logo-container {
-    // border: 2px solid #3a1e0c;
+    color: $navbar-font-colour;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
