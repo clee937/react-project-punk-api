@@ -3,6 +3,7 @@ import BeerCard from "../BeerCard/BeerCard";
 import { Beer } from "../../types/types";
 import placeholderBeer from "../../assets/images/placeholder.png";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 type MainProps = {
   filteredBeers: Beer[];
@@ -10,7 +11,27 @@ type MainProps = {
 };
 
 const Main = ({ filteredBeers, noOfResults }: MainProps) => {
+  const [showButton, setShowButton] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScrollButtonVisibility = () => {
+      window.scrollY || window.pageYOffset > 300
+        ? setShowButton(true)
+        : setShowButton(false);
+    };
+
+    window.addEventListener("scroll", handleScrollButtonVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollButtonVisibility);
+    };
+  }, []);
+
   const noResultsFound = <p className="main__no-results">No results found</p>;
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="main" data-testid="main-container">
@@ -33,6 +54,16 @@ const Main = ({ filteredBeers, noOfResults }: MainProps) => {
               />
             </Link>
           ))}
+      {showButton && (
+        <button
+          className="main__scroll-button"
+          onClick={scrollToTop}
+          id="scrollToTop"
+          title="Go to top"
+        >
+          <i className="fa-solid fa-angles-up main__scroll-button-arrow"></i>
+        </button>
+      )}
     </div>
   );
 };
