@@ -3,7 +3,6 @@ import { FormEventHandler } from "react";
 import Nav from "../../components/Nav/Nav";
 import Main from "../../components/Main/Main";
 import { Beer } from "../../types/types";
-// import { FormEvent } from "react";
 
 type HomeProps = {
   filteredBeers: Beer[];

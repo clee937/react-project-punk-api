@@ -72,9 +72,7 @@ function App() {
   }
 
   //   const clearFilters = () => {
-  //     setShowAbvOver6(false);
-  //     setShowHighAcidity(false);
-  //     setShowClassicRange(false);
+  //     setCheckboxFiltersCheckedState([false, false, false]);
   //     setSearchTerm("");
   //   };
 

@@ -3,7 +3,6 @@ import { FormEventHandler } from "react";
 import "./Nav.scss";
 import Checkbox from "../Checkbox/Checkbox";
 // import Button from "../Button/Button";
-// import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 type NavProps = {
