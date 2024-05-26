@@ -30,7 +30,7 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
 
           <img
             className="beer-info__image"
-            src={beer.image_url ? beer.image_url : placeholderBeer}
+            src={!beer.image_url || " " ? placeholderBeer : beer.image_url}
             alt={beer.name}
           />
         </div>

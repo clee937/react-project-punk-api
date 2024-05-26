@@ -46,7 +46,9 @@ const Main = ({ filteredBeers, noOfResults }: MainProps) => {
             >
               <BeerCard
                 id={beer.id}
-                imageUrl={beer.image_url ? beer.image_url : placeholderBeer}
+                imageUrl={
+                  !beer.image_url || " " ? placeholderBeer : beer.image_url
+                }
                 name={beer.name}
                 abv={beer.abv}
                 firstBrewed={beer.first_brewed}
